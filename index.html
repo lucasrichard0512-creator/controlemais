@@ -63,12 +63,34 @@ header{position:fixed;top:0;left:0;right:0;z-index:80;height:76px;background:rgb
   .scene-visual img{border-radius:14px}
 }
 
+
+/* Personalização controlada: a plataforma permanece Controle+ e a marca do cliente entra só nos pontos configuráveis. */
+.customize{position:relative;padding:130px 0;background:linear-gradient(180deg,#eef6f1 0%,#f8faf9 45%,#f4f7fb 100%);overflow:hidden}
+.customize:before{content:"";position:absolute;width:620px;height:620px;border-radius:50%;right:-180px;top:60px;background:rgba(32,200,90,.12);filter:blur(90px)}
+.customize-grid{position:relative;display:grid;grid-template-columns:.72fr 1.28fr;gap:76px;align-items:center}
+.customize-copy h2{font-size:clamp(48px,5.7vw,82px);line-height:.94;letter-spacing:-.06em;margin:18px 0 24px;max-width:590px}
+.customize-copy p{font-size:18px;line-height:1.65;color:var(--muted);max-width:520px}
+.customize-copy .mini-proof{margin-top:28px;display:grid;gap:12px;font-size:14px;font-weight:800;color:var(--navy)}
+.customize-copy .mini-proof span:before{content:"✓";display:inline-grid;place-items:center;width:22px;height:22px;margin-right:10px;border-radius:50%;background:#dff8e8;color:var(--green2)}
+.theme-demo{position:relative}
+.theme-tabs{display:flex;gap:9px;margin:0 0 18px;flex-wrap:wrap}
+.theme-tab{border:1px solid rgba(16,33,63,.12);background:#fff;color:var(--navy);padding:11px 15px;border-radius:999px;font:inherit;font-size:13px;font-weight:850;cursor:pointer;transition:.25s ease}
+.theme-tab.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 10px 26px rgba(16,33,63,.14)}
+.theme-window{position:relative;border-radius:28px;background:#fff;border:1px solid rgba(16,33,63,.1);box-shadow:0 42px 110px rgba(16,33,63,.16);overflow:hidden;min-height:470px}
+.theme-screen{position:absolute;inset:0;opacity:0;transform:scale(.985) translateY(8px);filter:blur(5px);transition:.55s cubic-bezier(.2,.75,.2,1)}
+.theme-screen.active{opacity:1;transform:none;filter:none}
+.theme-screen img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+.theme-caption{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px;font-size:13px;color:var(--muted)}
+.theme-caption b{color:var(--navy)}
+.customize-note{margin-top:24px;padding:16px 18px;border-radius:16px;background:#fff;border:1px solid rgba(16,33,63,.08);font-size:13px;line-height:1.55;color:#607087}
+@media(max-width:900px){.customize{padding:90px 0}.customize-grid{grid-template-columns:1fr;gap:38px}.theme-window{min-height:0;aspect-ratio:1.65}.customize-copy p{font-size:16px}.theme-caption{align-items:flex-start;flex-direction:column;gap:5px}}
+@media(max-width:520px){.customize{padding:68px 0}.customize-copy h2{font-size:12vw}.theme-window{border-radius:18px;aspect-ratio:1.25}.theme-screen img{object-fit:contain}.theme-tabs{gap:7px}.theme-tab{font-size:12px;padding:10px 12px}}
 </style>
 </head>
 <body>
 <header><div class="wrap nav"><div class="brand">controle<span class="brand-plus">+</span></div><nav class="navlinks"><a href="#fiado">Fiado</a><a href="#pdv">PDV</a><a href="#gestao">Gestão</a><a class="btn primary" href="#contato">Ver demonstração</a></nav></div></header>
 <main>
-<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Gestão comercial para quem vende de verdade</div><h1>Seu comércio sob <em>controle.</em> Sem depender de memória.</h1><p class="hero-copy">Fiado, caixa, estoque e gestão em um único fluxo. Você acompanha o que vendeu, o que ainda tem para receber e onde o dinheiro do negócio está — sem depender de caderno, memória ou retrabalho.</p><div class="hero-actions"><a class="btn green" href="#contato">Quero uma demonstração</a><a class="btn ghost" href="#fiado">Ver como funciona</a></div><div class="proof"><span>Fiado com histórico</span><span>PDV integrado</span><span>Gestão e estoque</span></div></div><div class="hero-visual"><div class="hero-shot" id="heroShot"><img src="assets/hero.webp" alt="Módulos do Controle+"><div class="fake-company"><span class="fake-logo">MA</span>Mercado Aurora</div></div><div class="float-card fc1">Em aberto hoje<b>R$ 42.380,70</b></div><div class="float-card fc2">Recebido no mês<b>R$ 18.240,90</b></div><div class="float-card fc3">Estoque baixo<b>7 produtos</b></div></div></div></section>
+<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Gestão comercial para quem vende de verdade</div><h1>Seu comércio sob <em>controle.</em> Sem depender de memória.</h1><p class="hero-copy">Fiado, caixa, estoque e gestão em um único fluxo. Você acompanha o que vendeu, o que ainda tem para receber e onde o dinheiro do negócio está — sem depender de caderno, memória ou retrabalho.</p><div class="hero-actions"><a class="btn green" href="#contato">Quero uma demonstração</a><a class="btn ghost" href="#fiado">Ver como funciona</a></div><div class="proof"><span>Fiado com histórico</span><span>PDV integrado</span><span>Gestão e estoque</span></div></div><div class="hero-visual"><div class="hero-shot" id="heroShot"><img src="assets/hero.webp" alt="Módulos do Controle+"></div><div class="float-card fc1">Em aberto hoje<b>R$ 42.380,70</b></div><div class="float-card fc2">Recebido no mês<b>R$ 18.240,90</b></div><div class="float-card fc3">Estoque baixo<b>7 produtos</b></div></div></div></section>
 
 <section class="cinema" id="fiado">
   <div class="cinema-track">
@@ -125,7 +147,34 @@ header{position:fixed;top:0;left:0;right:0;z-index:80;height:76px;background:rgb
     </article>
   </div>
 </section>
-<section class="mobile-section"><div class="wrap mobile-grid"><div class="mobile-copy"><div class="eyebrow">Acompanhamento no celular</div><h2>O dono não precisa estar no balcão para saber como o negócio está.</h2><p>No mobile, a experiência é focada em consulta: visão geral, clientes, cobranças, contas e alertas. Você acompanha o que importa sem transformar o celular em um caixa improvisado.</p><div class="hero-actions"><a class="btn green" href="#contato">Ver demonstração</a></div></div><div class="phones" id="phones"><div class="phone one"><img src="assets/mobile1.webp" alt="Controle+ no celular"></div><div class="phone two"><img src="assets/mobile2.webp" alt="Gestão mobile do Controle+"></div><span class="phone-tag pt1">Mercado Aurora</span><span class="phone-tag pt2">Visão gerencial</span></div></div></section>
+
+<section class="customize" id="personalizacao">
+  <div class="wrap customize-grid">
+    <div class="customize-copy">
+      <div class="eyebrow">Personalização sem perder o padrão</div>
+      <h2>Seu sistema. Sua marca. A experiência continua Controle+.</h2>
+      <p>Nos módulos configuráveis, o Controle+ pode incorporar a identidade do seu negócio sem mudar a lógica da plataforma. Nome, logo e cor de destaque entram de forma controlada; navegação, componentes e usabilidade permanecem consistentes.</p>
+      <div class="mini-proof">
+        <span>Logo e nome da empresa</span>
+        <span>Cor de destaque da marca</span>
+        <span>Mesmo padrão visual e operacional do Controle+</span>
+      </div>
+      <div class="customize-note">A personalização é aplicada apenas aos pontos previstos da interface. Isso evita que cada instalação pareça um sistema diferente e mantém treinamento, suporte e operação mais simples.</div>
+    </div>
+    <div class="theme-demo">
+      <div class="theme-tabs" role="tablist" aria-label="Exemplos de personalização">
+        <button class="theme-tab active" data-theme="fiado" type="button">Fiado · Hortifruti</button>
+        <button class="theme-tab" data-theme="gestao" type="button">Gestão · Casa Nativa</button>
+      </div>
+      <div class="theme-window">
+        <div class="theme-screen active" data-theme-screen="fiado"><img src="assets/personal-fiado.webp" alt="Controle+ Fiado personalizado para Hortifruti do Seu Zé"></div>
+        <div class="theme-screen" data-theme-screen="gestao"><img src="assets/personal-gestao.webp" alt="Controle+ Gestão personalizado para Casa Nativa"></div>
+      </div>
+      <div class="theme-caption"><b>Mesmo Controle+. Identidade adaptada ao cliente.</b><span>Exemplos demonstrativos de configuração visual.</span></div>
+    </div>
+  </div>
+</section>
+<section class="mobile-section"><div class="wrap mobile-grid"><div class="mobile-copy"><div class="eyebrow">Acompanhamento no celular</div><h2>O dono não precisa estar no balcão para saber como o negócio está.</h2><p>No mobile, a experiência é focada em consulta: visão geral, clientes, cobranças, contas e alertas. Você acompanha o que importa sem transformar o celular em um caixa improvisado.</p><div class="hero-actions"><a class="btn green" href="#contato">Ver demonstração</a></div></div><div class="phones" id="phones"><div class="phone one"><img src="assets/mobile1.webp" alt="Controle+ no celular"></div><div class="phone two"><img src="assets/mobile2.webp" alt="Gestão mobile do Controle+"></div><span class="phone-tag pt1">Controle+ Mobile</span><span class="phone-tag pt2">Visão gerencial</span></div></div></section>
 <section class="final" id="contato"><div class="wrap"><div class="eyebrow">Controle+ para o comércio real</div><h2>Você não precisa trabalhar mais para ter controle. Precisa enxergar melhor.</h2><p>Veja em uma demonstração como o Controle+ pode organizar fiado, vendas, estoque e gestão de acordo com a rotina do seu negócio.</p><a class="btn green" href="https://wa.me/5562999999999" target="_blank" rel="noopener">Pedir demonstração pelo WhatsApp</a></div></section>
 </main>
 <footer class="footer"><div class="wrap"><span>© 2026 Controle+</span><span>Fiado · PDV · Gestão comercial</span></div></footer>
@@ -136,6 +185,7 @@ scenes.forEach(s=>sceneIO.observe(s));
 const heroShot=document.getElementById('heroShot');
 const phones=document.getElementById('phones');
 if(matchMedia('(pointer:fine)').matches){document.addEventListener('mousemove',e=>{const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);if(heroShot)heroShot.style.transform=`rotateY(${-9+x*5}deg) rotateX(${4-y*4}deg) rotateZ(1deg) translate3d(${x*7}px,${y*5}px,0)`;if(phones)phones.style.transform=`translate3d(${x*10}px,${y*8}px,0)`;});}
+const themeTabs=[...document.querySelectorAll('.theme-tab')];const themeScreens=[...document.querySelectorAll('.theme-screen')];themeTabs.forEach(tab=>tab.addEventListener('click',()=>{const key=tab.dataset.theme;themeTabs.forEach(t=>t.classList.toggle('active',t===tab));themeScreens.forEach(sc=>sc.classList.toggle('active',sc.dataset.themeScreen===key));}));
 </script>
 </body>
 </html>
