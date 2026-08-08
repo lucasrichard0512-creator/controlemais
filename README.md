@@ -1,9 +1,8 @@
-# Controle de Fiados — Landing Page
+# Landing page Controle+
 
-Site estático comercial focado em demonstração e geração de leads pelo WhatsApp.
+Protótipo de landing page com narrativa por rolagem e telas demonstrativas em HTML/CSS usando apenas dados fictícios.
 
-## Publicação
-Envie os arquivos para Vercel, Netlify ou qualquer hospedagem estática. O arquivo principal é `index.html`.
-
-## WhatsApp
-O número está configurado no final do `index.html` na constante `number`.
+## Observações
+- O WhatsApp no CTA está com número placeholder `5562999999999`; substitua pelo número oficial antes de publicar.
+- Os nomes, valores e empresas exibidos são fictícios.
+- As telas são mockups HTML inspirados na interface atual do Controle+; nenhuma informação pessoal real foi usada.
