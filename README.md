@@ -1,5 +1,10 @@
-# Controle+ Landing v3
+# Controle+ — nova direção visual
 
-Landing page comercial com scrollytelling, screenshots reais do sistema, dados fictícios/identidades fictícias e layout responsivo.
+Landing reformulada com a nova hierarquia de marca:
+- Navy estrutural: `#08182F`
+- Verde de ação: `#19C66A`
+- Superfície clara: `#F4F7F6`
 
-Abra `index.html` em um navegador. Os arquivos de imagem ficam em `assets/`.
+Os screenshots novos do Controle+ foram usados como base, removendo apenas a barra de tarefas do Windows nas capturas desktop.
+
+Abra `index.html` no navegador para visualizar.

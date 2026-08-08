@@ -1,0 +1,18 @@
+<svg width="370" height="96" viewBox="0 0 370 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="282" y1="9" x2="344" y2="79" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#28DB78"/>
+      <stop offset="1" stop-color="#0CB85B"/>
+    </linearGradient>
+    <filter id="s" x="275" y="5" width="82" height="82" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#0CB85B" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <text x="4" y="61" fill="#0A1B38" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="850" letter-spacing="-3.1">controle</text>
+  <g filter="url(#s)">
+    <circle cx="316" cy="45" r="31" fill="#F5FFFA" stroke="url(#g)" stroke-width="5"/>
+    <rect x="308" y="26" width="16" height="38" rx="6" fill="url(#g)"/>
+    <rect x="297" y="37" width="38" height="16" rx="6" fill="url(#g)"/>
+  </g>
+  <text x="4" y="88" fill="#68758B" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2.2">FIADO • PDV • GESTÃO COMERCIAL</text>
+</svg>
