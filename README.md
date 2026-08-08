@@ -1,8 +1,5 @@
-# Landing page Controle+
+# Controle+ Landing v3
 
-Protótipo de landing page com narrativa por rolagem e telas demonstrativas em HTML/CSS usando apenas dados fictícios.
+Landing page comercial com scrollytelling, screenshots reais do sistema, dados fictícios/identidades fictícias e layout responsivo.
 
-## Observações
-- O WhatsApp no CTA está com número placeholder `5562999999999`; substitua pelo número oficial antes de publicar.
-- Os nomes, valores e empresas exibidos são fictícios.
-- As telas são mockups HTML inspirados na interface atual do Controle+; nenhuma informação pessoal real foi usada.
+Abra `index.html` em um navegador. Os arquivos de imagem ficam em `assets/`.
