@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Controle de Fiados: sistema simples para organizar clientes, cobranças, pagamentos e relatórios do seu comércio." />
+  <meta name="theme-color" content="#0a0c0b" />
+  <title>Controle de Fiados — Organize suas vendas e cobranças</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#090b0a;--surface:#111411;--surface2:#151915;--text:#f6f8f4;--muted:#9ea79f;
+      --line:#272d27;--lime:#c8ff3d;--lime2:#9edc17;--soft:#dfe7d7;--ink:#10130f;--max:1180px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6;overflow-x:hidden}
+    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .noise{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:90;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E")}
+    .header{position:fixed;inset:0 0 auto;z-index:50;background:linear-gradient(#090b0af2,#090b0ac7 60%,transparent);backdrop-filter:blur(14px)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font:700 1rem Space Grotesk;letter-spacing:-.03em}.brand b{color:var(--lime)}
+    .navlinks{display:flex;align-items:center;gap:26px;font-size:.82rem;color:#c7cec8}.navlinks a:hover{color:#fff}.navcta{padding:11px 17px;border:1px solid #3b433b;border-radius:999px}
+    .hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:130px 0 72px;overflow:hidden}.grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,#000,transparent 90%)}
+    .glow{position:absolute;width:650px;height:650px;border-radius:50%;right:-220px;top:60px;background:radial-gradient(circle,#bfff3b26,transparent 68%);filter:blur(24px)}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+    .eyebrow{display:flex;align-items:center;gap:12px;color:var(--lime);font-size:.74rem;text-transform:uppercase;letter-spacing:.18em;margin-bottom:22px}.eyebrow:before{content:"";width:38px;height:1px;background:var(--lime)}
+    h1,h2,h3{font-family:Space Grotesk;margin:0;letter-spacing:-.045em}.hero h1{font-size:clamp(3.4rem,7vw,7rem);line-height:.9;max-width:760px}.hero h1 span{color:var(--lime)}
+    .lead{font-size:1.12rem;color:var(--muted);max-width:590px;margin:28px 0 30px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 22px;border-radius:999px;font-weight:700;font-size:.9rem;background:var(--lime);color:#0a0c09;border:1px solid var(--lime);transition:.25s}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 35px #bfff3b22}.btn.ghost{background:transparent;color:#fff;border-color:#353c35}
+    .trust{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px;color:#8f988f;font-size:.78rem}.trust span{display:flex;align-items:center;gap:7px}.trust i{width:6px;height:6px;border-radius:50%;background:var(--lime);display:inline-block}
+    .product-card{position:relative;padding:15px;background:linear-gradient(145deg,#171b17,#0d0f0d);border:1px solid #2d342d;border-radius:26px;box-shadow:0 35px 90px #000b;transform:rotate(1.5deg)}.product-card:before{content:"";position:absolute;inset:-1px;border-radius:26px;background:linear-gradient(145deg,#c8ff3d35,transparent 32%);pointer-events:none}.product-card img{border-radius:16px;width:100%}.product-badge{position:absolute;right:18px;top:18px;background:#0a0c09d9;border:1px solid #394139;padding:9px 12px;border-radius:999px;font-size:.72rem;color:#dfe5df;backdrop-filter:blur(8px)}
+    .strip{border-block:1px solid var(--line);padding:17px 0;overflow:hidden;white-space:nowrap;color:#aeb6ae;font:600 .72rem Space Grotesk;letter-spacing:.15em;text-transform:uppercase}.strip-track{display:inline-block;animation:marquee 24s linear infinite}.strip b{color:var(--lime);margin:0 24px}
+    .section{padding:105px 0}.section-head{display:grid;grid-template-columns:1fr .9fr;gap:40px;align-items:end;margin-bottom:52px}.label{color:var(--lime);font-size:.7rem;text-transform:uppercase;letter-spacing:.18em;margin-bottom:14px}.section h2{font-size:clamp(2.7rem,5.8vw,5.7rem);line-height:.95}.section-head p{margin:0;color:var(--muted);max-width:520px}
+    .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pain{padding:28px;border:1px solid var(--line);border-radius:18px;background:#0d100e}.pain .n{font:600 .75rem Space Grotesk;color:#697269;margin-bottom:26px}.pain h3{font-size:1.35rem;margin-bottom:10px}.pain p{color:var(--muted);margin:0;font-size:.92rem}
+    .features{background:var(--soft);color:var(--ink)}.features .label{color:#5c741c}.features .section-head p{color:#555e54}.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.feature{background:#eef3e9;border:1px solid #c5cec0;border-radius:20px;padding:30px}.feature-top{display:flex;align-items:center;justify-content:space-between;gap:20px}.feature-icon{width:42px;height:42px;border-radius:12px;background:#c8ff3d;display:grid;place-items:center;color:#10130f;font-weight:800}.feature h3{font-size:1.45rem;margin:20px 0 8px}.feature p{color:#596158;margin:0}
+    .demo-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}.demo-copy h2{font-size:clamp(2.8rem,5.2vw,5.2rem)}.demo-copy p{color:var(--muted);max-width:500px}.demo-list{display:grid;gap:10px;margin:28px 0}.demo-list div{padding:13px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center}.demo-list span{color:var(--lime);font-weight:700}.demo-screen{padding:13px;background:#161a16;border:1px solid #2c332c;border-radius:22px;box-shadow:0 32px 70px #0008}.demo-screen img{border-radius:13px}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.gallery img{border-radius:14px;border:1px solid #2a302a}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:20px;overflow:hidden}.step{padding:26px;min-height:190px;border-right:1px solid var(--line)}.step:last-child{border-right:0}.step strong{color:var(--lime);font:600 .8rem Space Grotesk}.step h3{font-size:1.25rem;margin:18px 0 8px}.step p{color:var(--muted);font-size:.88rem;margin:0}
+    .conversion{padding:110px 0;background:linear-gradient(135deg,#c8ff3d,#a9e72c);color:#0b0d09;position:relative;overflow:hidden}.conversion:after{content:"";position:absolute;width:520px;height:520px;border:1px solid #10130f25;border-radius:50%;right:-160px;top:-220px;box-shadow:0 0 0 70px #10130f0d,0 0 0 140px #10130f09}.conversion-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:end}.conversion h2{font-size:clamp(3rem,6vw,6rem);line-height:.92}.conversion p{color:#344119;max-width:520px}.conversion .btn{background:#0b0d09;color:#fff;border-color:#0b0d09}.conversion .btn.ghost{background:transparent;color:#0b0d09;border-color:#50651d}
+    .faq{display:grid;gap:0;border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line);padding:20px 0}summary{cursor:pointer;font:600 1.05rem Space Grotesk;list-style:none;display:flex;justify-content:space-between;gap:20px}summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--lime);font-size:1.3rem}details[open] summary:after{content:"−"}details p{color:var(--muted);max-width:760px;margin:13px 0 0}
+    footer{border-top:1px solid var(--line);padding:30px 0;color:#7f887f;font-size:.78rem}.foot{display:flex;justify-content:space-between;gap:20px}.mobile-wa{display:none}
+    .reveal{opacity:0;transform:translateY(28px);transition:.75s ease}.reveal.on{opacity:1;transform:none}@keyframes marquee{to{transform:translateX(-50%)}}
+    @media(max-width:860px){.navlinks a:not(.navcta){display:none}.hero{min-height:auto;padding:120px 0 70px}.hero-grid,.section-head,.demo-grid,.conversion-grid{grid-template-columns:1fr}.hero-grid{gap:42px}.hero h1{font-size:clamp(3.5rem,15vw,6.6rem)}.product-card{transform:none}.section{padding:78px 0}.pain-grid,.feature-grid{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.step{border-bottom:1px solid var(--line)}.gallery{grid-template-columns:1fr}.foot{flex-direction:column}.mobile-wa{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:60;background:var(--lime);color:#0a0c09;border-radius:999px;min-height:54px;align-items:center;justify-content:center;font-weight:800;box-shadow:0 16px 45px #0009}.conversion{padding-bottom:120px}}
+    @media(max-width:540px){.wrap{width:min(var(--max),calc(100% - 28px))}.flow{grid-template-columns:1fr}.step{border-right:0}.hero h1{font-size:clamp(3.25rem,16vw,5rem)}.lead{font-size:1rem}.actions .btn{width:100%}.nav{height:74px}.section-head{margin-bottom:38px}.pain,.feature{padding:24px}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="header">
+    <div class="wrap nav">
+      <a href="#inicio" class="brand">CONTROLE<b>.</b>FIADOS</a>
+      <nav class="navlinks">
+        <a href="#beneficios">Benefícios</a><a href="#sistema">O sistema</a><a href="#como-funciona">Como funciona</a>
+        <a href="#contato" class="navcta">Pedir demonstração</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="grid"></div><div class="glow"></div>
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Feito para comércio que vende no fiado</div>
+          <h1>FIADO SEM <span>CONFUSÃO.</span></h1>
+          <p class="lead">Organize clientes, dívidas, pagamentos e cobranças em um só lugar. Menos caderno, menos esquecimento e mais controle do dinheiro que sua empresa tem para receber.</p>
+          <div class="actions">
+            <a class="btn" data-wa="demo" href="#">Quero ver uma demonstração</a>
+            <a class="btn ghost" href="#sistema">Conhecer o sistema</a>
+          </div>
+          <div class="trust"><span><i></i> Uso simples</span><span><i></i> Acesso pelo celular e computador</span><span><i></i> Implantação acompanhada</span></div>
+        </div>
+        <div class="product-card reveal">
+          <span class="product-badge">Painel em tempo real</span>
+          <img src="assets/dashboard.png" alt="Dashboard do sistema Controle de Fiados">
+        </div>
+      </div>
+    </section>
+
+    <div class="strip"><div class="strip-track">CLIENTES <b>•</b> COBRANÇAS <b>•</b> PAGAMENTOS <b>•</b> RELATÓRIOS <b>•</b> INDICADORES <b>•</b> CLIENTES <b>•</b> COBRANÇAS <b>•</b> PAGAMENTOS <b>•</b> RELATÓRIOS <b>•</b> INDICADORES <b>•</b></div></div>
+
+    <section class="section" id="beneficios">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="label">O problema</div><h2>Seu dinheiro não pode ficar perdido no caderno.</h2></div><p>Quando o controle do fiado depende de papel, memória ou conversa no WhatsApp, fica fácil esquecer cobranças, perder histórico e não saber quanto realmente há para receber.</p></div>
+        <div class="pain-grid">
+          <article class="pain reveal"><div class="n">01</div><h3>Saiba quem deve</h3><p>Consulte rapidamente clientes, valores em aberto, compras anteriores e pagamentos realizados.</p></article>
+          <article class="pain reveal"><div class="n">02</div><h3>Cobre na hora certa</h3><p>Visualize cobranças pendentes e tenha as informações necessárias para entrar em contato com o cliente.</p></article>
+          <article class="pain reveal"><div class="n">03</div><h3>Entenda o seu caixa</h3><p>Acompanhe indicadores e relatórios para saber quanto está em aberto e como os recebimentos evoluem.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features" id="sistema">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="label">O sistema</div><h2>O essencial para controlar o fiado.</h2></div><p>Uma ferramenta prática para a rotina do comércio, sem transformar uma tarefa simples em um sistema complicado de usar.</p></div>
+        <div class="feature-grid">
+          <article class="feature reveal"><div class="feature-top"><div class="feature-icon">01</div></div><h3>Cadastro de clientes</h3><p>Centralize dados, histórico e situação de cada cliente em um único lugar.</p></article>
+          <article class="feature reveal"><div class="feature-top"><div class="feature-icon">02</div></div><h3>Controle de cobranças</h3><p>Registre valores, acompanhe pendências e mantenha o histórico organizado.</p></article>
+          <article class="feature reveal"><div class="feature-top"><div class="feature-icon">03</div></div><h3>Registro de pagamentos</h3><p>Baixe pagamentos e acompanhe o que ainda falta receber sem fazer contas manualmente.</p></article>
+          <article class="feature reveal"><div class="feature-top"><div class="feature-icon">04</div></div><h3>Relatórios e indicadores</h3><p>Tenha uma visão rápida dos valores em aberto e do movimento das cobranças.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap demo-grid">
+        <div class="demo-copy reveal"><div class="label">Por dentro da plataforma</div><h2>Informação rápida para decidir e cobrar melhor.</h2><p>O sistema reúne as principais informações da operação em telas objetivas, para funcionar tanto no balcão quanto na gestão do dia a dia.</p><div class="demo-list"><div><span>01</span> Clientes organizados</div><div><span>02</span> Cobranças centralizadas</div><div><span>03</span> Histórico de pagamentos</div><div><span>04</span> Relatórios para acompanhamento</div></div><a class="btn" data-wa="demo" href="#">Agendar demonstração</a></div>
+        <div class="reveal"><div class="demo-screen"><img src="assets/clientes.png" alt="Tela de clientes do Controle de Fiados"></div><div class="gallery"><img src="assets/cobrancas.png" alt="Tela de cobranças"><img src="assets/relatorios.png" alt="Tela de relatórios"><img src="assets/dashboard.png" alt="Dashboard do sistema"></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="label">Começando</div><h2>Da demonstração ao uso.</h2></div><p>O objetivo é colocar o sistema para funcionar sem complicar sua rotina atual.</p></div>
+        <div class="flow">
+          <div class="step reveal"><strong>01</strong><h3>Demonstração</h3><p>Você conhece as telas e vê como o sistema se encaixa no seu comércio.</p></div>
+          <div class="step reveal"><strong>02</strong><h3>Configuração</h3><p>Preparamos o acesso e os ajustes necessários para começar.</p></div>
+          <div class="step reveal"><strong>03</strong><h3>Orientação</h3><p>Mostramos o fluxo de uso para quem ficará responsável pelo controle.</p></div>
+          <div class="step reveal"><strong>04</strong><h3>Acompanhamento</h3><p>Você tem suporte para dúvidas e adaptação durante o uso.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="conversion" id="contato">
+      <div class="wrap conversion-grid">
+        <div><div class="label">Quer ver funcionando?</div><h2>MARQUE UMA DEMONSTRAÇÃO.</h2></div>
+        <div><p>Converse diretamente pelo WhatsApp e veja como o Controle de Fiados pode funcionar na rotina do seu comércio.</p><div class="actions"><a class="btn" data-wa="demo" href="#">Falar pelo WhatsApp</a><a class="btn ghost" href="#faq">Tirar dúvidas primeiro</a></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap"><div class="section-head reveal"><div><div class="label">Dúvidas frequentes</div><h2>Antes de começar.</h2></div></div><div class="faq reveal">
+        <details><summary>Funciona no celular?</summary><p>O sistema foi pensado para acesso pela web e pode ser utilizado em dispositivos compatíveis, incluindo celular e computador.</p></details>
+        <details><summary>Preciso instalar alguma coisa?</summary><p>A demonstração serve justamente para mostrar a forma de acesso e como o uso funciona na prática.</p></details>
+        <details><summary>Serve apenas para supermercado?</summary><p>O sistema nasceu a partir de uma necessidade real de supermercado, mas o fluxo de controle de clientes, fiados e pagamentos pode atender outros tipos de comércio. A adequação pode ser avaliada na demonstração.</p></details>
+        <details><summary>Como faço para saber o valor?</summary><p>Entre em contato pelo WhatsApp. Assim é possível entender o seu cenário e apresentar a opção adequada de implantação e uso.</p></details>
+      </div></div>
+    </section>
+  </main>
+
+  <footer><div class="wrap foot"><span>Controle de Fiados — uma solução Richard TI</span><span>São Miguel do Araguaia, GO</span></div></footer>
+  <a class="mobile-wa" data-wa="demo" href="#">Quero uma demonstração</a>
+
+  <script>
+    const number='5562999407334';
+    const messages={demo:'Olá, Richard! Vi o site do Controle de Fiados e gostaria de agendar uma demonstração do sistema.'};
+    document.querySelectorAll('[data-wa]').forEach(a=>{const key=a.dataset.wa||'demo';a.href=`https://wa.me/${number}?text=${encodeURIComponent(messages[key])}`;a.target='_blank';a.rel='noopener'});
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
