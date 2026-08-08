@@ -16,6 +16,53 @@ header{position:fixed;top:0;left:0;right:0;z-index:80;height:76px;background:rgb
 @media(max-width:900px){header{height:68px}.navlinks a:not(.btn){display:none}.wrap{width:min(100% - 28px,760px)}.hero{padding:108px 0 60px;min-height:auto}.hero-grid,.story-grid,.mobile-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(54px,16vw,78px);max-width:100%}.hero-copy{font-size:17px}.hero-visual{min-height:470px;margin-top:20px}.hero-shot{width:780px;max-width:none;right:auto;left:50%;top:26px;transform:translateX(-50%) rotateX(3deg) rotateZ(-1deg) scale(.72);transform-origin:top center}.fake-company{top:7px;min-width:235px;height:40px;font-size:12px}.float-card{transform:scale(.88)}.fc1{left:2px;bottom:30px}.fc2{right:0;top:10px}.fc3{display:none}.intro{padding:86px 0 20px}.intro h2,.mobile-copy h2,.final h2{font-size:clamp(42px,12vw,62px)}.story-grid{gap:0}.sticky{display:none}.steps{padding-bottom:0}.step{min-height:auto;opacity:1;transform:none;padding:64px 0 24px}.step h3{font-size:clamp(38px,11vw,55px)}.step p{font-size:16px}.step:after{content:"";display:block;margin-top:28px;border-radius:20px;background-size:cover;background-position:center;box-shadow:0 22px 55px rgba(16,33,63,.14);border:1px solid var(--line);aspect-ratio:16/9}.step[data-screen="0"]:after{background-image:url('assets/fiado.webp')}.step[data-screen="1"]:after{background-image:url('assets/cobrancas.webp')}.step[data-screen="2"]:after{background-image:url('assets/pdv.webp');background-size:contain;background-repeat:no-repeat;background-color:#fff}.step[data-screen="3"]:after{background-image:url('assets/gestao.webp');background-size:contain;background-repeat:no-repeat;background-color:#eff6ff}.mobile-section{padding:90px 0}.phones{height:610px;margin-top:20px}.phone{width:245px}.phone.one{left:0;top:80px;transform:rotate(-5deg)}.phone.two{right:0;transform:rotate(5deg)}.pt1,.pt2{display:none}.footer .wrap{flex-direction:column;gap:8px;text-align:center}}
 @media(max-width:520px){.navlinks .btn{padding:11px 14px;font-size:12px}.brand{font-size:23px}.brand-plus{width:29px;height:29px;font-size:22px}.hero{padding-top:96px}.hero h1{font-size:15vw}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.hero-actions .btn{padding:14px 12px;font-size:13px}.proof{gap:10px;display:grid;grid-template-columns:1fr}.hero-visual{min-height:390px}.hero-shot{transform:translateX(-50%) scale(.56);top:12px}.float-card{font-size:10px;padding:13px 15px}.float-card b{font-size:20px}.fc1{bottom:15px}.fc2{top:0}.step{padding-top:52px}.step:after{aspect-ratio:1.5/1;background-size:cover}.phones{height:540px}.phone{width:205px;border-width:7px;border-radius:30px}.phone.one{top:90px}.mobile-copy p{font-size:16px}.final{padding:90px 0}.final .btn{width:100%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.step{opacity:1;transform:none}.screen{filter:none}}
+
+/* Premium middle scenes */
+.intro,.story{display:none!important}
+.cinema{position:relative;background:linear-gradient(180deg,#f5f8f6 0%,#f1f6f3 45%,#edf4f1 100%);overflow:hidden}
+.cinema-track{width:min(1380px,calc(100% - 48px));margin:auto}
+.cinema-scene{position:relative;min-height:100svh;display:grid;grid-template-columns:.72fr 1.28fr;align-items:center;gap:52px;padding:110px 0;isolation:isolate}
+.cinema-scene:before{content:"";position:absolute;inset:8% -10% 8%;z-index:-2;opacity:.55;background:radial-gradient(circle at 75% 45%,rgba(32,200,90,.12),transparent 36%)}
+.scene-gestao:before{background:radial-gradient(circle at 76% 42%,rgba(37,99,235,.14),transparent 38%)}
+.scene-copy{position:relative;z-index:5;max-width:510px;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .6s ease}
+.scene-num{display:inline-block;margin-bottom:20px;color:var(--green2);font-weight:950;font-size:12px;letter-spacing:.18em}
+.scene-gestao .scene-num{color:#2563eb}
+.scene-copy h2{margin:0 0 22px;font-size:clamp(50px,5.5vw,82px);line-height:.92;letter-spacing:-.06em;max-width:620px}
+.scene-copy p{margin:0;color:var(--muted);font-size:19px;line-height:1.62;max-width:500px}
+.scene-copy strong{display:block;margin-top:26px;font-size:16px;color:var(--green2);letter-spacing:-.01em}
+.scene-gestao .scene-copy strong{color:#2563eb}
+.scene-visual{position:relative;z-index:3;height:min(76vh,760px);display:flex;align-items:center;justify-content:center;perspective:1600px}
+.scene-visual img{position:relative;z-index:2;width:min(920px,72vw);max-height:100%;object-fit:contain;border-radius:24px;box-shadow:0 45px 120px rgba(16,33,63,.18);transform:translate3d(6%,0,0) rotateY(-4deg) scale(.96);transition:transform .9s cubic-bezier(.16,.76,.18,1),filter .8s ease,opacity .6s ease;filter:saturate(.98) contrast(1.01)}
+.scene-visual.wide img{width:min(1040px,76vw)}
+.scene-visual.fullscreenish img{width:min(1120px,79vw)}
+.scene-glow{position:absolute;width:68%;height:68%;right:4%;top:16%;border-radius:50%;background:rgba(32,200,90,.16);filter:blur(70px);z-index:0;transform:scale(.8);opacity:.45;transition:.8s ease}
+.scene-visual.blue .scene-glow{background:rgba(37,99,235,.17)}
+.cinema-scene.in-view .scene-visual img{transform:translate3d(0,0,0) rotateY(0deg) scale(1)}
+.cinema-scene.in-view .scene-glow{transform:scale(1);opacity:.8}
+.cinema-scene:not(.in-view) .scene-copy{opacity:.35;transform:translateY(28px)}
+.scene-cobranca,.scene-gestao{grid-template-columns:1.22fr .78fr}
+.scene-cobranca .scene-copy,.scene-gestao .scene-copy{order:2;padding-left:10px}
+.scene-cobranca .scene-visual,.scene-gestao .scene-visual{order:1}
+.scene-cobranca .scene-visual img,.scene-gestao .scene-visual img{transform:translate3d(-6%,0,0) rotateY(4deg) scale(.96)}
+.scene-cobranca.in-view .scene-visual img,.scene-gestao.in-view .scene-visual img{transform:none}
+@media(max-width:900px){
+  .cinema-track{width:min(100% - 28px,760px)}
+  .cinema-scene,.scene-cobranca,.scene-gestao{min-height:auto;grid-template-columns:1fr;gap:28px;padding:76px 0}
+  .scene-copy,.scene-cobranca .scene-copy,.scene-gestao .scene-copy{order:1;padding-left:0;max-width:none}
+  .scene-visual,.scene-cobranca .scene-visual,.scene-gestao .scene-visual{order:2;height:auto;min-height:0;perspective:none}
+  .scene-copy h2{font-size:clamp(42px,11vw,62px)}
+  .scene-copy p{font-size:16px;max-width:620px}
+  .scene-visual img,.scene-visual.wide img,.scene-visual.fullscreenish img,.scene-cobranca .scene-visual img,.scene-gestao .scene-visual img{width:100%;max-height:none;transform:none!important;border-radius:18px;box-shadow:0 24px 60px rgba(16,33,63,.14)}
+  .scene-glow{width:90%;height:70%;right:5%;top:18%;filter:blur(50px)}
+}
+@media(max-width:520px){
+  .cinema-scene{padding:58px 0}
+  .scene-num{margin-bottom:14px}
+  .scene-copy h2{font-size:12.2vw;line-height:.96;margin-bottom:16px}
+  .scene-copy strong{margin-top:18px;font-size:14px}
+  .scene-visual img{border-radius:14px}
+}
+
 </style>
 </head>
 <body>
@@ -23,28 +70,69 @@ header{position:fixed;top:0;left:0;right:0;z-index:80;height:76px;background:rgb
 <main>
 <section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Gestão comercial para quem vende de verdade</div><h1>Seu comércio sob <em>controle.</em> Sem depender de memória.</h1><p class="hero-copy">Fiado, caixa, estoque e gestão em um único fluxo. Você acompanha o que vendeu, o que ainda tem para receber e onde o dinheiro do negócio está — sem depender de caderno, memória ou retrabalho.</p><div class="hero-actions"><a class="btn green" href="#contato">Quero uma demonstração</a><a class="btn ghost" href="#fiado">Ver como funciona</a></div><div class="proof"><span>Fiado com histórico</span><span>PDV integrado</span><span>Gestão e estoque</span></div></div><div class="hero-visual"><div class="hero-shot" id="heroShot"><img src="assets/hero.webp" alt="Módulos do Controle+"><div class="fake-company"><span class="fake-logo">MA</span>Mercado Aurora</div></div><div class="float-card fc1">Em aberto hoje<b>R$ 42.380,70</b></div><div class="float-card fc2">Recebido no mês<b>R$ 18.240,90</b></div><div class="float-card fc3">Estoque baixo<b>7 produtos</b></div></div></div></section>
 
-<section class="story"><div class="wrap story-grid"><div class="steps">
-<article class="step active" data-screen="0" id="fiado"><div class="step-kicker">01 · Fiado</div><h3>“Eu sei que tenho dinheiro para receber. Só não sei de quem cobrar primeiro.”</h3><p>Veja em poucos segundos quanto está em aberto, quanto entrou no mês e quais clientes precisam de atenção primeiro. Tudo organizado em uma única visão.</p><div class="solution">Priorize cobranças e acompanhe o dinheiro que realmente entrou no caixa.</div></article>
-<article class="step" data-screen="1"><div class="step-kicker">02 · Cobrança</div><h3>“O cliente atrasou. Mas quando foi a última compra? Quanto deve? Já pagou alguma coisa?”</h3><p>Antes de entrar em contato, você já tem o contexto completo: saldo, tempo de atraso, últimas movimentações e histórico do cliente na mesma tela.</p><div class="solution">Cobranças mais objetivas, com prioridade e informação para decidir quem contatar primeiro.</div></article>
-<article class="step" data-screen="2" id="pdv"><div class="step-kicker">03 · PDV</div><h3>“Vender rápido é bom. Melhor ainda quando a venda já alimenta o restante da operação.”</h3><p>O PDV conecta atendimento, caixa, cliente e fiado no mesmo fluxo. A venda acontece uma vez e a informação segue com ela, sem retrabalho.</p><div class="solution">Do balcão ao financeiro, o movimento fica registrado e pronto para acompanhar.</div></article>
-<article class="step" data-screen="3" id="gestao"><div class="step-kicker">04 · Gestão</div><h3>“Comprar melhor começa por saber o que gira, o que sobra e quanto cada produto deixa de margem.”</h3><p>Fornecedores, notas de entrada, contas a pagar, inventário, custos e margem passam a conversar. Você enxerga o impacto da compra antes de repetir o mesmo erro.</p><div class="solution">Mais clareza para comprar, precificar e proteger o caixa.</div></article>
-</div><div class="sticky"><div class="stage" id="stage">
-<div class="screen active fiado"><img src="assets/fiado.webp" alt="Painel de fiados do Controle+"><span class="screen-label">Controle+ Fiado</span></div>
-<div class="screen cobrancas"><img src="assets/cobrancas.webp" alt="Painel de cobranças do Controle+"><span class="screen-label">Cobranças por prioridade</span></div>
-<div class="screen pdv"><img src="assets/pdv.webp" alt="PDV do Controle+"><span class="screen-label">Controle+ PDV</span></div>
-<div class="screen gestao"><img src="assets/gestao.webp" alt="Gestão comercial do Controle+"><span class="screen-label">Controle+ Gestão</span><div class="data-overlay"><div><b>Distribuidora Azul</b>Última entrada · R$ 4.820,00</div><div><b>18 itens</b>estoque baixo</div><div><b>31,4%</b>margem média</div></div></div>
-<div class="progress"><i class="on"></i><i></i><i></i><i></i></div>
-</div></div></div></section>
+<section class="cinema" id="fiado">
+  <div class="cinema-track">
+    <article class="cinema-scene scene-fiado active" data-scene="0">
+      <div class="scene-copy">
+        <span class="scene-num">01 · FIADO</span>
+        <h2>Saiba quem cobrar antes de perder o controle.</h2>
+        <p>Em uma única visão, você enxerga o total em aberto, quanto entrou no mês e quais clientes precisam de atenção agora.</p>
+        <strong>Menos procura. Mais decisão.</strong>
+      </div>
+      <div class="scene-visual">
+        <div class="scene-glow"></div>
+        <img src="assets/fiado.webp" alt="Painel de fiados do Controle+">
+      </div>
+    </article>
+
+    <article class="cinema-scene scene-cobranca" data-scene="1">
+      <div class="scene-copy">
+        <span class="scene-num">02 · COBRANÇA</span>
+        <h2>Toda a história da dívida em um só lugar.</h2>
+        <p>Veja atraso, saldo, últimas movimentações e histórico do cliente antes de cobrar. Você entra em contato com contexto, não no escuro.</p>
+        <strong>Cobrança mais objetiva. Menos desgaste.</strong>
+      </div>
+      <div class="scene-visual wide">
+        <div class="scene-glow"></div>
+        <img src="assets/cobrancas.webp" alt="Painel de cobranças do Controle+">
+      </div>
+    </article>
+
+    <article class="cinema-scene scene-pdv" data-scene="2" id="pdv">
+      <div class="scene-copy">
+        <span class="scene-num">03 · PDV</span>
+        <h2>Venda rápido. O resto o Controle+ organiza.</h2>
+        <p>Caixa, cliente e fiado conversam no mesmo fluxo. A venda acontece uma vez e a informação segue com ela, sem retrabalho.</p>
+        <strong>Do balcão ao financeiro, tudo conectado.</strong>
+      </div>
+      <div class="scene-visual fullscreenish">
+        <div class="scene-glow"></div>
+        <img src="assets/pdv.webp" alt="PDV do Controle+">
+      </div>
+    </article>
+
+    <article class="cinema-scene scene-gestao" data-scene="3" id="gestao">
+      <div class="scene-copy">
+        <span class="scene-num">04 · GESTÃO</span>
+        <h2>Você vende hoje. O Controle+ mostra o que isso significa amanhã.</h2>
+        <p>Estoque, compras, contas e margem deixam de ser ilhas. A gestão passa a mostrar onde comprar melhor, o que gira e o que prende dinheiro.</p>
+        <strong>Mais clareza para proteger caixa e margem.</strong>
+      </div>
+      <div class="scene-visual fullscreenish blue">
+        <div class="scene-glow"></div>
+        <img src="assets/gestao.webp" alt="Gestão comercial do Controle+">
+      </div>
+    </article>
+  </div>
+</section>
 <section class="mobile-section"><div class="wrap mobile-grid"><div class="mobile-copy"><div class="eyebrow">Acompanhamento no celular</div><h2>O dono não precisa estar no balcão para saber como o negócio está.</h2><p>No mobile, a experiência é focada em consulta: visão geral, clientes, cobranças, contas e alertas. Você acompanha o que importa sem transformar o celular em um caixa improvisado.</p><div class="hero-actions"><a class="btn green" href="#contato">Ver demonstração</a></div></div><div class="phones" id="phones"><div class="phone one"><img src="assets/mobile1.webp" alt="Controle+ no celular"></div><div class="phone two"><img src="assets/mobile2.webp" alt="Gestão mobile do Controle+"></div><span class="phone-tag pt1">Mercado Aurora</span><span class="phone-tag pt2">Visão gerencial</span></div></div></section>
 <section class="final" id="contato"><div class="wrap"><div class="eyebrow">Controle+ para o comércio real</div><h2>Você não precisa trabalhar mais para ter controle. Precisa enxergar melhor.</h2><p>Veja em uma demonstração como o Controle+ pode organizar fiado, vendas, estoque e gestão de acordo com a rotina do seu negócio.</p><a class="btn green" href="https://wa.me/5562999999999" target="_blank" rel="noopener">Pedir demonstração pelo WhatsApp</a></div></section>
 </main>
 <footer class="footer"><div class="wrap"><span>© 2026 Controle+</span><span>Fiado · PDV · Gestão comercial</span></div></footer>
 <script>
-const steps=[...document.querySelectorAll('.step')];
-const screens=[...document.querySelectorAll('.screen')];
-const bars=[...document.querySelectorAll('.progress i')];
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const i=+e.target.dataset.screen;steps.forEach((s,n)=>s.classList.toggle('active',n===i));screens.forEach((s,n)=>s.classList.toggle('active',n===i));bars.forEach((b,n)=>b.classList.toggle('on',n===i));}})},{rootMargin:'-40% 0px -42% 0px',threshold:0});
-steps.forEach(s=>io.observe(s));
+const scenes=[...document.querySelectorAll('.cinema-scene')];
+const sceneIO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in-view');else e.target.classList.remove('in-view')})},{rootMargin:'-18% 0px -18% 0px',threshold:.18});
+scenes.forEach(s=>sceneIO.observe(s));
 const heroShot=document.getElementById('heroShot');
 const phones=document.getElementById('phones');
 if(matchMedia('(pointer:fine)').matches){document.addEventListener('mousemove',e=>{const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);if(heroShot)heroShot.style.transform=`rotateY(${-9+x*5}deg) rotateX(${4-y*4}deg) rotateZ(1deg) translate3d(${x*7}px,${y*5}px,0)`;if(phones)phones.style.transform=`translate3d(${x*10}px,${y*8}px,0)`;});}
